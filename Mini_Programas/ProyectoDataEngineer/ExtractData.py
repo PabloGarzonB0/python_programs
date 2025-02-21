@@ -25,9 +25,28 @@ def extract():
     # Procesar todos los archivos json
     for jsonfile in glob.glob(".json"):
         extracted_data = extracted_data.append(extrac_from_csv(jsonfile), ignore_index=True)
-        
-        
     return extracted_data
+        
+def transform(data):
+    # Convertir datos que se encuentran en pulgadas a milimetros
+    data['height'] = round(data.height * 0.0252,2)
+    # Convertir las libras a kilogramos
+    data['weight']= round(data.weight * 0.45359237,2)
+    return data 
+
+def load(target_file, data_to_load):
+    data_to_load.to_csv(target_file)
+
+
+    # Registro de datos
+def log(message):
+    timestamp_format = "%Y-%h-%d-%H:%M:%S"
+    now = datetime.now()
+    timestamp = now.strftime(timestamp_format)  # Se formatea la fecha teniendo en cuenta este estilo
+    with open("logfile.txt", "+a") as f:
+        f.write(timestamp + ',' + message + '\n' )
+
 if __name__ == "__main__":
-    #df= extrac_from_csv('source1.csv') 
+    target_file = "tranformed_data.csv"
     print("gola")
+
