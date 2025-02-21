@@ -1,6 +1,7 @@
+'''ETL para la extraccion de datos de archivos Json y CSV considerando unicamente datos uniformes'''
+
 import glob
 import pandas as pd
-
 # Extraccion de los datos
 list_csv = glob.glob('*.csv')
 list_json = glob.glob('*.json')
@@ -45,8 +46,24 @@ def log(message):
     timestamp = now.strftime(timestamp_format)  # Se formatea la fecha teniendo en cuenta este estilo
     with open("logfile.txt", "+a") as f:
         f.write(timestamp + ',' + message + '\n' )
-
+    
 if __name__ == "__main__":
     target_file = "tranformed_data.csv"
-    print("gola")
+    
+    # LLamada a funciones para Refinar los datos finales
+    log("ETL Job Started")
+    log("Extract phase Started")
+    extracted_data = extract()
+    log("Extract phase Ended")
+    
+    log("Transform Job Started")
+    transformed_data = transform(extracted_data)
+    log("Transrom Job Ended")
+    
+    log("Load Job Started")
+    load(target_file, transformed_data)
+    log("Load Job Ended")
+    
+    log("Finish ETL Process...")    
+   
 
