@@ -39,17 +39,24 @@ def transform(df):
     df["GDP_USD_billions"] = df["GDP_USD_millions"]/1000
     df["GDP_USD_billions"] = (df["GDP_USD_billions"]).round(2)
     df.drop(columns=["GDP_USD_billions"], inplace=True)
+
+    # GDP_list = df["GDP_USD_millions"].tolist()
+    # GDP_list = [float("".join(x.split(','))) for x in GDP_list]
+    # GDP_list = [np.round(x/1000, decimals=2) for x in GDP_list]
+    # df["GDP_USD_millions"] = GDP_list
+    # df = df.rename(columns={"GDP_USD_millions":"GDP_USD_billions"})
+    
     return df
 
 def load_to_csv(df, csv_path):
     ''' Esta funcion guarda el dataframe final en un archivo .csv considerando la ruta de 
     almacenamiento'''
-    pass
+    df.to_csv(csv_path)
 
 
 def load_to_db(df, sql_connection, table_name):
     '''Esta funcion guarga el dataframe final en una tabla dentro de la base de datos'''
-    pass
+    df.to_sql(table_name, sql_connection, if_exists='replace', index=False)
 
 def run_query(query_statment, sql_connection):
     '''Esta funcion ejecuta una consulta dentro de la base de datos'''
@@ -58,7 +65,11 @@ def run_query(query_statment, sql_connection):
 def log_progress(message):
     '''Esta funcion genera un archivo log donde se guarda los registro de operaciones 
     de ejecucion realizados'''
-    pass
+    timestamp_format = "%Y-%h-%d-%H:%M:%S"
+    now = datetime.now()
+    timestamp = now.strftime(timestamp_format)
+    with open("log_file.txt", "+a") as file:
+        file.write("[{}] {} \n".format(timestamp , message))
     
 if __name__ == '__main__':
     
@@ -68,6 +79,22 @@ if __name__ == '__main__':
     db_name = 'World_Economies.db'
     table_name = 'Countries_by_GDP'
     csv_path = 'Countries_by_GDP.csv'
+    
+    log_progress("ETL JOB STARTED")
+    
+    log_progress("1. Web_Page Data Extraction ")
     df = extract(URL, table_attribs)
+    log_progress("1. Finish Data Extraction")
+    
     df_prueba = df.copy()
+    
+    log_progress("2. Transform Job Started")
     df_transfrom = transform(df_prueba)
+    log_progress("2. Transform Job Ended")
+    
+    log_progress("3. Load  Job Started")
+    load_to_csv(df, csv_path)
+    sql_connection = sqlite3.connect(db_name)  
+    load_to_db(df, sql_connection, table_name)
+    log_progress("3. Load Job Started")
+    log_progress("Finish ETL Process...")  
