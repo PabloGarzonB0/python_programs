@@ -50,6 +50,23 @@ def ingreso_datos_dic():
         dato = input(f"Favor ingrese su {elemento} y presione Enter: ")
         datos_dict[elemento] = dato
     print(f"Detalles personales son: \n{datos_dict}")
+def cesta_compras():
+    cesta_dict = {}
+    elemento = []
+    total = 0
+    print("Bienvenido al supermercado: ")
+    while True:
+        eleccion = input("Para agregar un elemento presione 1,\nPara salir presione 0\n")
+        if eleccion == "1":
+            elemento = input("Escriba el producto que desea comprar de la siguiente manera \narticulo:valor: ").split(":")
+            cesta_dict[elemento[0]] = float(elemento[1])
+        elif eleccion == "0":
+            for elemento in cesta_dict:
+                print(f"{elemento} : {cesta_dict[elemento]}")
+                total += cesta_dict[elemento]
+            print(f"El total de todos los elementos es: {total}")
+            break
+        else: print("Valor seleccionado no encontrado")
     
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
@@ -71,4 +88,6 @@ if __name__ == "__main__":
     # Ejercicio 4.
     #creditos_asignatura(creditos_dict)
     #Ejercicio 5.
-    Ingreso_datos()
+    #Ingreso_datos()
+    # Ejercicio 6.
+    cesta_compras()
