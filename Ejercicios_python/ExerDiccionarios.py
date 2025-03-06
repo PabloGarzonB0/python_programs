@@ -67,4 +67,8 @@ if __name__ == "__main__":
     # Ejercicio 2.
     #cotizacion_fruta(frutas_dict)
     # Ejercicio 3.
-    conversion_fecha()
+    #conversion_fecha()
+    # Ejercicio 4.
+    #creditos_asignatura(creditos_dict)
+    #Ejercicio 5.
+    Ingreso_datos()
