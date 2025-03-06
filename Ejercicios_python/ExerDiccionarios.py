@@ -34,9 +34,23 @@ def conversion_fecha():
     else:  
         print("No se ingreso ningun formato valido, vuelvalo a intentar")
 
-def creditos_asignatura():
-    pass
-
+def creditos_asignatura(creditos_dict):
+    '''Funcion que imprime en pantalla el numero de creditos acumulados de un estudiante'''
+    total_creditos = 0
+    for key, values in creditos_dict.items():
+        #total_creditos += values
+        print("{} tiene {} creditos".format(key, creditos_dict[key]))
+         
+    #print("Total de creditos acumulados es:", total_creditos)
+    
+def ingreso_datos_dic():
+    datos_dict = {}
+    lista_datos = ["nombre", "edad", "sexo", "Telefono", "Email"]
+    for  elemento in lista_datos:
+        dato = input(f"Favor ingrese su {elemento} y presione Enter: ")
+        datos_dict[elemento] = dato
+    print(f"Detalles personales son: \n{datos_dict}")
+    
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
     frutas_dict = {'Platano':1.35, 'Manzana': 0.80, 'Pera':0.85, 'Naranja': 0.70}
