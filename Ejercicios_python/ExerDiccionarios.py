@@ -67,6 +67,22 @@ def cesta_compras():
             print(f"El total de todos los elementos es: {total}")
             break
         else: print("Valor seleccionado no encontrado")
+
+
+def diccionario_traduccion():
+    traducciones = {}
+    elemento = []
+    continuar = True
+    while continuar:
+        elemento = input("Indtroduzca la palabra y su respectiva traduccion, separado por :").split(":")
+        traducciones[elemento[0]] = elemento[1]
+        continuar = input("Si desea continuar ingresado mas palabras a la lista (Y/N)") == "Y"
+    frase = input("Ingrese alguna frase que quiera traducir al ingles: ").split()
+    for elemento in frase:
+        if elemento in traducciones.keys():
+            print(traducciones[elemento], end=" ")
+        else: print(elemento, end=" ")
+        
     
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
@@ -90,4 +106,6 @@ if __name__ == "__main__":
     #Ejercicio 5.
     #Ingreso_datos()
     # Ejercicio 6.
-    cesta_compras()
+    #cesta_compras()
+    # Ejercicio 7.
+    diccionario_traduccion()
