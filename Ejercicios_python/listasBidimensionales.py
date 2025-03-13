@@ -34,7 +34,8 @@ def main():
     # Sistema de reserva de asientos
     asientos = generar_asientos()
     imprimir_asientos(asientos)
-
+    # opcion 2 para visualizar asientos
+    contar_asientos_disponibles(asientos)
     # Creacion de matriz numerica
     matriz_numerica = crear_matriz_numerica()
     imprimir_matriz(matriz_numerica)
