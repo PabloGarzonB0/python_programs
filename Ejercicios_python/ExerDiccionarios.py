@@ -131,5 +131,7 @@ if __name__ == "__main__":
     # Ejercicio 6.
     #cesta_compras()
     # Ejercicio 7.
-    diccionario_traduccion()
+    #diccionario_traduccion()
+    # Ejercicio 8.
+    gestion_facturas()
 
