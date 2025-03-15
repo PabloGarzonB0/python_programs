@@ -109,3 +109,28 @@ if __name__ == "__main__":
     #cesta_compras()
     # Ejercicio 7.
     diccionario_traduccion()
+    # Programa que gestionalas facturas pendientes de una empresa
+'''Las facturas deben almacenarse en un diccionario, la clabe de cada factuar
+ sera el numero de factura y el valor el coste de la factura. El programa debe preguntar
+ al usuario si quiere agragar una nueba factura, paga una existente o terminar'''
+
+facturas = {}
+cobrado = 0 
+pendientes = 0
+more = ''
+while more != 'T':
+    if more == 'A':
+        clave = input('Introduce el numero de la factuar: ')
+        coste = float(input("Introduce el coste de la factura: "))
+        facturas[clave] = coste
+        pendientes += coste
+    if more == 'P':
+        clave = input('Introduce el numero de la factura a pagar')
+        coste = facturas.pop(clave, 0)
+        cobrado += coste
+        pendientes -= coste
+    print('Recaudado: ', cobrado)
+    print('Pendiente de cobro: ', pendientes)
+    more = input("Quieres añadir una nueva factura (A), pagarla (P) o terminar (T)?")
+
+print("Proceso de facturacion terminado exitosamente")
