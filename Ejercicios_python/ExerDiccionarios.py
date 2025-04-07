@@ -114,6 +114,48 @@ def gestionBaseDatos():
         un diccionario como valor para los datos del cliente como (nombre, direccion, telefono, correo, preferente),
         las operaciones de llevan a cabo mediante un menu interactivo
     '''
+    # Inicializacion de variables
+    clientes = {}
+    opcion = ''
+
+    while opcion != '6':
+        if opcion == '1':
+            nif = input("Introduzca el nombre del cliente: ")
+            nombre = input("Introduce el nombre del cliente: ")
+            direccion = input("Introduce la direccion del cliente: ")
+            telefono = input("Introducir el telefono del cliente: ")
+            email = input("Introducir el email del cliente: ")
+            vip = input("El cliente es preferencial (S/N): ")
+            cliente = {"nombre" : nombre, "direccion": direccion, "telefono":telefono, "email": email, "preferente":vip=="S"}
+            clientes[nif] = cliente # ingresar diccionario de cliente dentro de clientes
+        if opcion == '2':
+            nif = input("Ingrese el NIF del cliente a buscar: ")
+            if nif in clientes:
+                del clientes[nif]
+                print("Eliminacion de registro de datos de clientes exitosamente")
+            else:
+                print(f"Los datos del cliente no existen, {nif}")
+        if opcion == '3':
+            nif = input("Introduce NIF del cliente: ")
+            if nif in clientes :
+                print('NIF: ', nif)
+                for clave, valor in clientes[nif].items():
+                    print(clave.title() + ':', valor)
+            else: 
+                print('No existe el cliente con el nif: ', nif)
+        if opcion == '4':
+            print('Lista de clientes')
+            for clave, valor in clientes.items():
+                print(clave, valor['nombre'])
+        if opcion == '5':
+            print('Lista de clientes preferentes')
+            for clave, valor in clientes.items():
+                if valor['preferente']:
+                    print(clave,' ' + valor['nombre'])
+        opcion = input("Menu de opciones \n(1) Añadir clientes\n(2) Eliminar cliente    /
+        \n(3) Mostrar cliente\n(4) Listar clientes\n(5) Listar clientes preferenciales")
+            
+    
     
      
 if __name__ == "__main__":
