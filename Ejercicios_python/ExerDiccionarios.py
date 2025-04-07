@@ -50,6 +50,7 @@ def ingreso_datos_dic():
         dato = input(f"Favor ingrese su {elemento} y presione Enter: ")
         datos_dict[elemento] = dato
     print(f"Detalles personales son: \n{datos_dict}")
+    
 def cesta_compras():
     cesta_dict = {}
     elemento = []
@@ -67,6 +68,7 @@ def cesta_compras():
             print(f"El total de todos los elementos es: {total}")
             break
         else: print("Valor seleccionado no encontrado")
+            
 def diccionario_traduccion():
     traducciones = {}
     elemento = []
@@ -82,9 +84,9 @@ def diccionario_traduccion():
         else: print(elemento, end=" ")
         
  def gestion_facturas():
-    '''Las facturas deben almacenarse en un diccionario, la clabe de cada factuar
-     sera el numero de factura y el valor el coste de la factura. El programa debe preguntar
-     al usuario si quiere agragar una nueba factura, paga una existente o terminar'''
+    '''Las facturas deben almacenarse en un diccionario, la clave de cada factua
+     sera el numero de facturas y el valor del coste de la factura. El programa debe preguntar
+     al usuario si quiere agregar una nueba factura, pagar una existente o terminar'''
 
     facturas = {}
     cobrado = 0 
@@ -106,6 +108,13 @@ def diccionario_traduccion():
         more = input("Quieres añadir una nueva factura (A), pagarla (P) o terminar (T)?")
     
     print("Proceso de facturacion terminado exitosamente")
+
+def gestionBaseDatos():
+    '''Gestion de datos de clientes de una empresa, utilizando un identificador de tipo NIF como clave, y 
+        un diccionario como valor para los datos del cliente como (nombre, direccion, telefono, correo, preferente),
+        las operaciones de llevan a cabo mediante un menu interactivo
+    '''
+    
      
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
@@ -133,5 +142,7 @@ if __name__ == "__main__":
     # Ejercicio 7.
     #diccionario_traduccion()
     # Ejercicio 8.
-    gestion_facturas()
+    #gestion_facturas()
+    # Ejercicio 9
+    gestionBaseDatos()
 
