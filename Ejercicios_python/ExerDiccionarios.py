@@ -156,7 +156,15 @@ def gestionBaseDatos():
         \n(3) Mostrar cliente\n(4) Listar clientes\n(5) Listar clientes preferenciales")
             
 def directorioClientes():
-        pass
+        ''' Un directorio de una compañía tiene el registro de sus clientes en un diccionario con la siguiente informacion 
+        nombre, email, telefono, nif y descuento si aplica, cada elemento corresponde a un cliente donde la clave el el atributo y el valor
+        corresponde a la entrada del cliente, las lineas se separa por caracteres de escape tal que asi \n
+        "nif;nombre;email;teléfono;descuento\n
+        01234567L;Luis González;luisgonzalez@mail.com;656343576;12.5\n
+        71476342J;Macarena Ramírez;macarena@mail.com;692839321;8\n
+        63823376M;Juan José Martínez;juanjo@mail.com;664888233;5.2\n
+        98376547F;Carmen Sánchez;carmen@mail.com;667677855;15.7"
+        '''
     
      
 if __name__ == "__main__":
