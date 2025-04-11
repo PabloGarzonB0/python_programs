@@ -168,15 +168,17 @@ def directorioClientes(datos_cliente):
         lista_clientes = datos_cliente.split("\n")
         # Inicializacion de diccionario
         directorio = {}
-        lista_campos = lista_clientes[0].split(";") % Primer registro
-        for i in lista_clientes[1:]:
+        lista_campos = lista_clientes[0].split(";") % Encabezado del directorio
+        for i in lista_clientes[1:]:     # Se trae cada registro de cliente
             cliente = {}
             # Dividimos la cadena i por el caracter ; y creamos una lista con las subcadenas con la informacion del cliente
             lista_info = i.split(';')
             for j in range(1, len(lista_campos)):
+                # Condicion para la transformacion de datos string a float
                 if lista_campos[j] == 'descuento':
                     lista_info[j] = float(lista_info[j])
                 cliente[lista_campos[j]] = lista_info[j]
+            directorio[lista_info[0]] = cliente  # se crea un diccionario con el registro nif y la informacion de cliente.   
      
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
