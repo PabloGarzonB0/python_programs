@@ -168,6 +168,15 @@ def directorioClientes(datos_cliente):
         lista_clientes = datos_cliente.split("\n")
         # Inicializacion de diccionario
         directorio = {}
+        lista_campos = lista_clientes[0].split(";") % Primer registro
+        for i in lista_clientes[1:]:
+            cliente = {}
+            # Dividimos la cadena i por el caracter ; y creamos una lista con las subcadenas con la informacion del cliente
+            lista_info = i.split(';')
+            for j in range(1, len(lista_campos)):
+                if lista_campos[j] == 'descuento':
+                    lista_info[j] = float(lista_info[j])
+                cliente[lista_campos[j]] = lista_info[j]
      
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
