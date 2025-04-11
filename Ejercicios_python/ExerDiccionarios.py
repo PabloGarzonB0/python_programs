@@ -155,7 +155,7 @@ def gestionBaseDatos():
         opcion = input("Menu de opciones \n(1) Añadir clientes\n(2) Eliminar cliente    /
         \n(3) Mostrar cliente\n(4) Listar clientes\n(5) Listar clientes preferenciales")
             
-def directorioClientes():
+def directorioClientes(datos_cliente):
         ''' Un directorio de una compañía tiene el registro de sus clientes en un diccionario con la siguiente informacion 
         nombre, email, telefono, nif y descuento si aplica, cada elemento corresponde a un cliente donde la clave el el atributo y el valor
         corresponde a la entrada del cliente, las lineas se separa por caracteres de escape tal que asi \n
@@ -165,7 +165,9 @@ def directorioClientes():
         63823376M;Juan José Martínez;juanjo@mail.com;664888233;5.2\n
         98376547F;Carmen Sánchez;carmen@mail.com;667677855;15.7"
         '''
-    
+        lista_clientes = datos_cliente.split("\n")
+        # Inicializacion de diccionario
+        directorio = {}
      
 if __name__ == "__main__":
     lista_elementos = ["nombre", "edad", "direccion", "telefono"]
@@ -197,5 +199,6 @@ if __name__ == "__main__":
     # Ejercicio 9
     gestionBaseDatos()
     # Ejercicio 10
+    datos_cliente = "nif;nombre;email;teléfono;descuento\n01234567L;Luis González;luisgonzalez@mail.com;656343576;12.5\n71476342J;Macarena Ramírez;macarena@mail.com;692839321;8\n63823376M;Juan José Martínez;juanjo@mail.com;664888233;5.2\n98376547F;Carmen Sánchez;carmen@mail.com;667677855;15.7"
     directorioClientes()
 
