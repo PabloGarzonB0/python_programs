@@ -155,7 +155,8 @@ def gestionBaseDatos():
         opcion = input("Menu de opciones \n(1) Añadir clientes\n(2) Eliminar cliente    /
         \n(3) Mostrar cliente\n(4) Listar clientes\n(5) Listar clientes preferenciales")
             
-    
+def directorioClientes():
+        pass
     
      
 if __name__ == "__main__":
@@ -187,4 +188,6 @@ if __name__ == "__main__":
     #gestion_facturas()
     # Ejercicio 9
     gestionBaseDatos()
+    # Ejercicio 10
+    directorioClientes()
 
