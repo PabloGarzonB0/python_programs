@@ -9,7 +9,12 @@ def factorialNumber(number):
   else:
     factorial = number * factorialNumber(number - 1 )
   return factorial
-  
+
+def factorialNumber2(number):
+  temp_var = 1
+  for i in range(number):
+    temp_var *= i + 1
+  return temp_var
 
 
 # Punto de entrada principal del programa
