@@ -58,3 +58,8 @@ if __name__ ==  "__main__" :
     # Calcular los N numeros primos del valor n
     lista_pri = [2]
     numerosPrimos(lista_pri)
+    # Grafico de letras
+    FILAS = 7
+    COLUMNAS = 7
+    grafica_z()
+    grafica_n()
