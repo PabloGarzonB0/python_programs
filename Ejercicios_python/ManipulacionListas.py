@@ -20,11 +20,24 @@ def numerosPrimos(*kargs):
         a = 0
         for y in range(x, 0, -1):
             #print(x)
-            if x % y == 0:
+            if (x % y == 0):
                 a += 1
         if a == 2:
             lista_pri.append(x)
     print("Lista de numeros primos agrupados: ",lista_pri)
+
+def grafica_z():
+    ''' Funcion para graficar la letra z en consola'''
+    for fil in range(FILAS):
+        for col in range(COLUMNAS):
+            if(fil == 0 or fil == 6):
+                print("x\t", end="")
+            elif fil + col == 6:
+                print("x\t", end="")
+            else:
+                print("\t", end="")
+        print()
+
 
 if __name__ ==  "__main__" : 
     # Inicializacion de la lista a analizar
