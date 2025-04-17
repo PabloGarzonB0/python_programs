@@ -37,7 +37,17 @@ def grafica_z():
             else:
                 print("\t", end="")
         print()
-
+def grafica_n():
+    ''' Funcion para graficar la letra n en consola'''
+    for fil in range(FILAS):
+        for col in range(COLUMNAS):
+            if(col == 0 or col == 6):
+                print("x\t", end="")
+            elif col == fil:
+                print("x\t", end="")
+            else:
+                print("\t", end ="")
+        print()
 
 if __name__ ==  "__main__" : 
     # Inicializacion de la lista a analizar
