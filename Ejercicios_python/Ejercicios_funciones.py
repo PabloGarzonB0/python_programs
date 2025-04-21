@@ -15,8 +15,21 @@ def factorialNumber2(number):
   for i in range(number):
     temp_var *= i + 1
   return temp_var
+def square(sample):
+  """ Funcion para calcular los cuadrados de una lista de numeros"""
+  list = []
+  for i in sample:
+    list.append(i**2)
+  return list
 
-
+def statistics(sample):
+  '''Funcion que calcula varianza, media y desviacion de muestras '''
+  stat = {}
+  stat['media'] = sum(sample)/ len(sample)
+  stat['varianza'] = sum(square(sample))/len(sample)-stat['media']**2
+  stat['desviacion tipica'] = stat['varianza']**0.5
+  return stat
+  
 # Punto de entrada principal del programa
 if __name__ = '__main__':
   # Exercise 1
@@ -24,3 +37,5 @@ if __name__ = '__main__':
   # Exercise 2
   number = 5  # We harcore a number that pass into the function
   factorialNumber(number)
+  # Ejercicio 3
+  print(statistics([2.3, 5.7, 6.8, 9.7, 12.1, 15.6]))
