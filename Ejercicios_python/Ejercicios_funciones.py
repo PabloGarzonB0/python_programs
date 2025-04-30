@@ -39,6 +39,14 @@ def count_alpha_digit(str):
       dict['digit'] += 1
     else: pass
   return dict
+
+class PingPongParent:
+  pass
+class Ping(PingPongParent):
+  def __init__(self, pong):
+    self.pong = pong
+
+class Pong(PingPongParent)
   
 # Punto de entrada principal del programa
 if __name__ = '__main__':
