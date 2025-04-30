@@ -29,13 +29,24 @@ def statistics(sample):
   stat['varianza'] = sum(square(sample))/len(sample)-stat['media']**2
   stat['desviacion tipica'] = stat['varianza']**0.5
   return stat
+
+def count_alpha_digit(str):
+  dict = {'alphabet' : 0, 'digit ': 0}
+  for s in str:
+    if s.isalpha():
+    dict['alphabet'] += 1
+    elif s.isdigit():
+      dict['digit'] += 1
+    else: pass
+  return dict
   
 # Punto de entrada principal del programa
 if __name__ = '__main__':
   # Exercise 1
-  greet()
+  #greet()
   # Exercise 2
   number = 5  # We harcore a number that pass into the function
-  factorialNumber(number)
+  #factorialNumber(number)
   # Ejercicio 3
-  print(statistics([2.3, 5.7, 6.8, 9.7, 12.1, 15.6]))
+  #print(statistics([2.3, 5.7, 6.8, 9.7, 12.1, 15.6]))
+  # print(count_alpha_digit("Logical python1 0101"))
