@@ -46,7 +46,14 @@ class Ping(PingPongParent):
   def __init__(self, pong):
     self.pong = pong
 
-class Pong(PingPongParent)
+class Pong(PingPongParent):
+  def __init__(self, pings=None):
+    if pings is None:
+      self.pings = []
+    else:
+      self.pings = pings
+  def add_ping(self, ping):
+    self.pings.append(ping)
   
 # Punto de entrada principal del programa
 if __name__ = '__main__':
@@ -58,3 +65,6 @@ if __name__ = '__main__':
   # Ejercicio 3
   #print(statistics([2.3, 5.7, 6.8, 9.7, 12.1, 15.6]))
   # print(count_alpha_digit("Logical python1 0101"))
+  pong = Pong()
+  ping = Ping(pong)
+  pong.add_ping(ping)
