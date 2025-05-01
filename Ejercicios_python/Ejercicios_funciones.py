@@ -54,7 +54,15 @@ class Pong(PingPongParent):
       self.pings = pings
   def add_ping(self, ping):
     self.pings.append(ping)
-  
+
+def to_decimal(n):
+  """Funcion para convertir un numero binario a decimal"""
+  n = list(n)
+  n.reverse()
+  decimal = 0
+  for i in range(len(n)):
+    decimal += int(n[i]) * 2 ** i
+  return decimal
 # Punto de entrada principal del programa
 if __name__ = '__main__':
   # Exercise 1
