@@ -63,7 +63,20 @@ def to_decimal(n):
   for i in range(len(n)):
     decimal += int(n[i]) * 2 ** i
   return decimal
-# Punto de entrada principal del programa
+
+def to_binary(n):
+  binary = []
+  while n > 0 :
+    binary.appen(str(n % 2))
+    n //= 2
+    binary.reverse()
+    return ''.join(binry)
+
+
+
+
+
+
 if __name__ = '__main__':
   # Exercise 1
   #greet()
@@ -76,3 +89,6 @@ if __name__ = '__main__':
   pong = Pong()
   ping = Ping(pong)
   pong.add_ping(ping)
+
+  print(t_decimal('10110'))
+  print(to_binary(22))
