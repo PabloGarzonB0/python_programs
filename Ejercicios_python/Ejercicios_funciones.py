@@ -72,7 +72,25 @@ def to_binary(n):
     binary.reverse()
     return ''.join(binry)
 
+def count_words(text):
+  """Function that contain a number of times appears each word in a text"""
+  text = text.split()
+  words = {}
+  for _ in text:
+    if _ in words:
+      words[_] += 1
+    else: 
+      words[_] = 1
+return words
 
+def most_repeated(words):
+  max_word = ''
+  max_freq = 0
+  for word, freq in words.items():   # Trae tanto la clave como el valor
+    if freq > max_freq:
+      max_freq = freq
+      max_word = word
+return  max_freq,  max_word
 
 
 
@@ -89,6 +107,10 @@ if __name__ = '__main__':
   pong = Pong()
   ping = Ping(pong)
   pong.add_ping(ping)
-
+  # Conversion de decimal a binario
+  # Conversion de binario a decimal
   print(t_decimal('10110'))
   print(to_binary(22))
+  # Calculo de la palabra con mayor frecuencia
+  texto = "Como quiere que te quiera carinito, si de tu amor no me das ni si quiera un poquito, mientras tu te haces la disimulada, ve mi amor y dime que me quieres carinito"
+  print(most_repeated(count_words(texto)))
