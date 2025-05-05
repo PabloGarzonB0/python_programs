@@ -9,4 +9,20 @@ def listar_formatos_soportados():
     print(f"- {formato}")
   return formatos
 
+def convertir_imagen(ruta_imagen, formato_salida, carpeta_destino=None):
+  """ Convierte una imagen al formato especificado
+
+  Args:
+    ruta_imagen: Ruta de la imagen a convertir
+    formato_salida: Formato al que se convertira
+    carpeta_destino: carpeta donde se guardara la imagen convertida
+  Returns:
+    str: Ruta de la imagen convertida
+  """
+  try:
+    "Verifica que al imagen existe"
+    if not os.path.exists(ruta_imagen):
+      print(f"Error: La imagen '{ruta_imagen}' no existe.")
+      return None
+
 
