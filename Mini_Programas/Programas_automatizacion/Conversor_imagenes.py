@@ -25,4 +25,10 @@ def convertir_imagen(ruta_imagen, formato_salida, carpeta_destino=None):
       print(f"Error: La imagen '{ruta_imagen}' no existe.")
       return None
 
+    # Abrir la imagen
+    imagen = Image.open(ruta_imagen)
+    # Obtener informacion de la imagen original
+  nombre_archivo = os.path.basename(ruta_imagen)
+  nombre_base = os.path.splitext(nombre_archivo)[0]
+
 
