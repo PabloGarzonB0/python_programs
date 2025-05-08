@@ -50,7 +50,23 @@ except Exception as e:
     print(f"Error al convertir la imagen: {e}")
     return None
 
+def convertir_multiples_imagenes(carpeta_original, formato_salida, carpeta_destino=None):
+  # Verificar qeuee la carpeta exista
+  if not os.path.exists(carpeta_origen):
+    print(f"Error: La carpeta '{carpeta_original}' no existe.")
+    return 0
 
+  extensiones_imagen = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.webp']
+  # Contador de imagenes a convertir
+  contador = 0
+  # Recorrer todos los archivos en la carpeta
+  for archivo in os.listdir(carpeta_origen):
+    ruta_archivo = os.path.join(carpeta_origen, archivo)
+    # Verificar si es un archivo y tiene extension de imagen
+    if os.path.isfile(ruta_archivo) and any(archivo.lower().endswith(ext) for ext in extensiones_imagen):
+      if convertir_imagen(ruta_archivo, formato_salida, carpeta_destino):
+        contador += 1
+  return contador
 
 
 
