@@ -41,5 +41,8 @@ def convertir_imagen(ruta_imagen, formato_salida, carpeta_destino=None):
   formato_salida = formato_salida.lower().strip(".")
   ruta_salida = os.path.join(carpeta_destino, f"{nombre_base}.{formato_salida}")
 
+  imagen.save(ruta_salida)
+  print(f"Imagen convertida y guardada en : {ruta_salida}")
+
 
 
