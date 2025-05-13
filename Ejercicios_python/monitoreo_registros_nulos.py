@@ -25,7 +25,38 @@ datos_complejos = {
 orden_columnas = ('id', 'nombre', 'edad', 'ciudad', 'puntuacion',
                   'activo','ultimo_conexion', 'hobbies', 'dato_extra'
                   'es_premium', 'cantidad_compras','promedio_gasto', 'direccion', 'nota', 'valor_especial')
+def menu():
+    while True:
+        print("\n" + "="*50)
+        print("MENU PRINCIPAL".center(50))
+        print("="*50)
+        print("1. Mostrar fila aleatoria")
+        print("2. Elegir fila por indice (1-15)")
+        print("3. Modificar nombres vacios (None)")
+        print("4. Salir")
 
+        opcion = input("\nSeleccione una opcion:")
+
+        if opcion = "1":
+            indice = random.randint(0,len(datos_complejos['id']) - 1)
+            mostrar_file(indice)
+        elif opcion == "2":
+            try:
+                indice = int(input("Ingrese el numero de fila (1-15): ")) - 1
+                if 0 <= indice < len(datos_complejos['id']):
+                    mostrar_file(indice)
+                else:
+                    print("\n Error El indice debe estar entre 1 y 15")
+            except ValueError:
+                    print("Error al ingresar un valor valido")
+        elif opcion == "3":
+            modificar_nombre_none()
+        elif opcion == "4":
+            print("\nSaliendo del programa...")
+            break
+        else: 
+            print("\nOpcion no valida, por favor seleccionar 1, 2, 3 o 4")
+        input("\nPresione Enter para continuar")
 if __name__ == "__main__":
   "Tratamiento de datos complejos"
   menu()
